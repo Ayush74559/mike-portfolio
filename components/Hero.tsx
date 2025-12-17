@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-90" />
         
         <img
-          src="/media/hero-mike-agar-BD3MvvMb.webp"
+          src="/media/img/hero-mike-agar-BD3MvvMb.webp"
           alt="Founder Portrait"
           className="w-full h-full object-cover"
           style={{ objectPosition: '75% center' }}

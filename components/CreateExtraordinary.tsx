@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal, TextReveal } from './ui/Reveal';
 import { Button } from './ui/Button';
 import { SpotlightCard } from './ui/SpotlightCard';
-import { cn } from '../../utils/cn';
+import { cn } from '../utils/cn';
 
 interface Step {
   title: string;
@@ -255,8 +255,11 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
           {topics.map((item, i) => (
             <Reveal key={i} delay={0.8 + (i * 0.1)} direction="up" className="h-full">
               <div onClick={() => setSelectedTopic(item)} className="h-full cursor-pointer perspective-1000 group">
-                <SpotlightCard 
-                  className="h-full p-10 rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 hover:border-white/10 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)] flex flex-col relative overflow-hidden"
+                <SpotlightCard
+                  className={cn(
+                    "h-full p-10 rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 transition-all duration-500 flex flex-col relative overflow-hidden",
+                    "hover:border-white/10 hover:scale-[1.02] hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
+                  )}
                   spotlightColor={item.color}
                 >
                    {/* Card Background Glow */}
@@ -293,11 +296,14 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
         </div>
 
         <Reveal delay={1.2} className="mt-24 flex justify-center">
-           <Button 
+           <Button
              onClick={() => onNavigate?.('consultation')}
-             variant="primary" 
-             size="lg" 
-             className="bg-white text-slate-950 hover:bg-blue-50 px-12 py-5 text-lg shadow-[0_0_50px_rgba(255,255,255,0.15)] font-bold rounded-full transition-all hover:scale-105 active:scale-95"
+             variant="primary"
+             size="lg"
+             className={cn(
+               "bg-white text-slate-950 hover:bg-blue-50 px-12 py-5 text-lg font-bold rounded-full transition-all",
+               "shadow-[0_0_50px_rgba(255,255,255,0.15)] hover:scale-105 active:scale-95"
+             )}
            >
              Start a Project
            </Button>
@@ -327,9 +333,12 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
               className="relative w-full max-w-6xl h-[85vh] bg-[#0b0c10] border border-white/10 rounded-[3rem] shadow-2xl overflow-hidden z-10 flex flex-col md:flex-row"
             >
               {/* Close Button */}
-              <button 
+              <button
                 onClick={() => setSelectedTopic(null)}
-                className="absolute top-6 right-6 p-3 rounded-full bg-black/40 hover:bg-white/10 text-white/70 hover:text-white transition-colors z-30 border border-white/10 backdrop-blur-md group"
+                className={cn(
+                  "absolute top-6 right-6 p-3 rounded-full bg-black/40 text-white/70 transition-colors z-30 border border-white/10 backdrop-blur-md group",
+                  "hover:bg-white/10 hover:text-white"
+                )}
               >
                 <X className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
               </button>
@@ -390,7 +399,14 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
                 {/* Footer Action */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10] to-transparent flex justify-between items-end">
                   <span className="text-slate-500 text-sm">Step {selectedTopic.steps.length} of {selectedTopic.steps.length}</span>
-                  <Button onClick={() => setSelectedTopic(null)} variant="outline" className="border-slate-700 text-slate-300 hover:text-white hover:border-white">
+                  <Button
+                    onClick={() => setSelectedTopic(null)}
+                    variant="outline"
+                    className={cn(
+                      "border-slate-700 text-slate-300",
+                      "hover:text-white hover:border-white"
+                    )}
+                  >
                     Close
                   </Button>
                 </div>

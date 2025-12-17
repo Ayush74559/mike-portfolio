@@ -46,7 +46,7 @@ const MusicalJourney: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/media/musical-background.jpg"
+          src="/media/img/musical-background.jpg"
           alt="Musical Background"
           className="w-full h-full object-cover opacity-30"
         />
