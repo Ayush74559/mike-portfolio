@@ -46,7 +46,7 @@ const MusicalJourney: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/media/img/musical-background.jpg"
+          src="/images/musical-background.jpg"
           alt="Musical Background"
           className="w-full h-full object-cover opacity-30"
         />
@@ -62,7 +62,7 @@ const MusicalJourney: React.FC = () => {
           <div className="absolute inset-0 -m-12 rounded-[3rem] bg-gradient-to-br from-black/60 via-black/40 to-black/80 backdrop-blur-sm border border-white/5" />
           <div
             className="absolute inset-0 -m-12 rounded-[3rem] opacity-20 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url(/media/img/musical-background.jpg)' }}
+            style={{ backgroundImage: 'url(/images/musical-background.jpg)' }}
           />
           
           <div className="relative z-10 p-12">
