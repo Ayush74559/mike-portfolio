@@ -46,7 +46,7 @@ const MusicalJourney: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/media/Act as a world-class musician, composer, and music producer.__Task__Create an original, high-quality music track that feels emotional, cinematic, and professionally produced.__Music Style & Genre___Genre_ (Bollywood _ Indie _ Pop _ EDM _ Lo.jpg"
+          src="/media/musical-background.jpg"
           alt="Musical Background"
           className="w-full h-full object-cover opacity-30"
         />
