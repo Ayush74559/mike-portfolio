@@ -56,18 +56,27 @@ const MusicalJourney: React.FC = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-24">
-          <Reveal width="100%">
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight font-serif italic">
-              A Symphony of Life
-            </h2>
-          </Reveal>
-          <Reveal delay={0.2} width="100%">
-             <p className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed font-serif italic">
-              From the cinematic grandeur of Bollywood to the intimacy of Ghazals, music is the rhythm that underscores every chapter of the journey.
-             </p>
-          </Reveal>
+        {/* Header with Enhanced Background */}
+        <div className="text-center max-w-4xl mx-auto mb-24 relative">
+          {/* Enhanced Background Overlay for Header */}
+          <div className="absolute inset-0 -m-12 rounded-[3rem] bg-gradient-to-br from-black/60 via-black/40 to-black/80 backdrop-blur-sm border border-white/5" />
+          <div
+            className="absolute inset-0 -m-12 rounded-[3rem] opacity-20 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url(/media/img/musical-background.jpg)' }}
+          />
+          
+          <div className="relative z-10 p-12">
+            <Reveal width="100%">
+              <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight font-serif italic drop-shadow-2xl">
+                A Symphony of Life
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2} width="100%">
+               <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed font-serif italic drop-shadow-lg">
+                From the cinematic grandeur of Bollywood to the intimacy of Ghazals, music is the rhythm that underscores every chapter of the journey.
+               </p>
+            </Reveal>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
