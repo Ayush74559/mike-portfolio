@@ -1,0 +1,5 @@
+# Vercel redirects for proper file serving
+/*    /index.html   200
+
+# Media files redirects
+/media/*  /media/:splat  200
