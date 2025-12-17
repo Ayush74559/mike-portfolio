@@ -218,75 +218,75 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
 
   return (
-    <section className="py-40 bg-black relative overflow-hidden">
+    <section className="py-20 sm:py-32 md:py-40 bg-black relative overflow-hidden">
        {/* Cinematic Background */}
       <div className="absolute inset-0 bg-black" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#1e293b,transparent_70%)] opacity-40" />
       <div className="absolute top-0 right-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Apple-style Section Header */}
-        <div className="max-w-5xl mx-auto text-center mb-32">
+        <div className="max-w-5xl mx-auto text-center mb-16 sm:mb-24 md:mb-32 px-2">
           <Reveal width="100%" direction="down">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-bold tracking-[0.2em] uppercase mb-10 backdrop-blur-md shadow-lg">
-              <Layers className="w-3 h-3 text-blue-400" />
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-6 sm:mb-8 md:mb-10 backdrop-blur-md shadow-lg">
+              <Layers className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-400" />
               <span>The Process</span>
             </div>
           </Reveal>
           
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-10 tracking-tighter leading-[1.05] font-display">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white mb-6 sm:mb-8 md:mb-10 tracking-tighter leading-[1.05] font-display">
             <TextReveal text="Let's Create" delay={0.1} /> 
             <br />
-            <span className="block mt-2">
+            <span className="block mt-1 sm:mt-2">
               <TextReveal text="Something Extraordinary" delay={0.4} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-300 animate-gradient-x" />
             </span>
           </h2>
           
           <Reveal delay={0.6}>
-            <p className="text-xl md:text-3xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto antialiased">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto antialiased px-2">
               Synthesizing creative intuition with engineering precision to architect the future.
             </p>
           </Reveal>
         </div>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {topics.map((item, i) => (
             <Reveal key={i} delay={0.8 + (i * 0.1)} direction="up" className="h-full">
               <div onClick={() => setSelectedTopic(item)} className="h-full cursor-pointer perspective-1000 group">
                 <SpotlightCard
                   className={cn(
-                    "h-full p-10 rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 transition-all duration-500 flex flex-col relative overflow-hidden",
+                    "h-full p-6 sm:p-8 md:p-10 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 transition-all duration-500 flex flex-col relative overflow-hidden",
                     "hover:border-white/10 hover:scale-[1.02] hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
                   )}
                   spotlightColor={item.color}
                 >
                    {/* Card Background Glow */}
-                   <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-700" style={{ backgroundColor: item.accent }} />
+                   <div className="absolute top-0 right-0 -mr-12 sm:-mr-16 md:-mr-20 -mt-12 sm:-mt-16 md:-mt-20 w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 rounded-full blur-[60px] sm:blur-[70px] md:blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-700" style={{ backgroundColor: item.accent }} />
 
                   <div className="flex justify-between items-start mb-auto">
                     <div 
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shadow-lg bg-white/5 border border-white/5 backdrop-blur-sm"
+                      className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shadow-lg bg-white/5 border border-white/5 backdrop-blur-sm"
                     >
-                      <item.icon className="w-8 h-8 transition-colors duration-300 group-hover:text-white" style={{ color: item.accent }} />
+                      <item.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transition-colors duration-300 group-hover:text-white" style={{ color: item.accent }} />
                     </div>
                     
-                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-2 group-hover:translate-x-0 border border-white/10">
-                      <ArrowUpRight className="w-5 h-5 text-white" />
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-2 group-hover:translate-x-0 border border-white/10">
+                      <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" />
                     </div>
                   </div>
                   
-                  <div className="mt-12">
-                      <h3 className="text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-blue-100 transition-colors">
+                  <div className="mt-8 sm:mt-10 md:mt-12">
+                      <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 tracking-tight group-hover:text-blue-100 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-slate-400 text-lg font-light leading-relaxed mb-8 group-hover:text-slate-300 transition-colors">
+                      <p className="text-slate-400 text-base sm:text-lg font-light leading-relaxed mb-6 sm:mb-8 group-hover:text-slate-300 transition-colors">
                         {item.desc}
                       </p>
                       
-                      <div className="flex items-center text-xs font-bold text-white/40 group-hover:text-white transition-colors uppercase tracking-[0.15em] border-t border-white/5 pt-6">
-                        View Process <ChevronRight className="w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                      <div className="flex items-center text-[10px] sm:text-xs font-bold text-white/40 group-hover:text-white transition-colors uppercase tracking-[0.15em] border-t border-white/5 pt-4 sm:pt-6">
+                        View Process <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 ml-1 transform group-hover:translate-x-1 transition-transform" />
                       </div>
                   </div>
                 </SpotlightCard>
@@ -295,13 +295,13 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
           ))}
         </div>
 
-        <Reveal delay={1.2} className="mt-24 flex justify-center">
+        <Reveal delay={1.2} className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 flex justify-center px-4">
            <Button
              onClick={() => onNavigate?.('consultation')}
              variant="primary"
              size="lg"
              className={cn(
-               "bg-white text-slate-950 hover:bg-blue-50 px-12 py-5 text-lg font-bold rounded-full transition-all",
+               "bg-white text-slate-950 hover:bg-blue-50 px-8 sm:px-10 md:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold rounded-full transition-all w-full sm:w-auto",
                "shadow-[0_0_50px_rgba(255,255,255,0.15)] hover:scale-105 active:scale-95"
              )}
            >
@@ -330,7 +330,7 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 40 }}
               transition={{ type: "spring", duration: 0.6, bounce: 0.15 }}
-              className="relative w-full max-w-6xl h-[85vh] bg-[#0b0c10] border border-white/10 rounded-[3rem] shadow-2xl overflow-hidden z-10 flex flex-col md:flex-row"
+              className="relative w-full max-w-6xl h-[90vh] sm:h-[85vh] bg-[#0b0c10] border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] lg:rounded-[3rem] shadow-2xl overflow-hidden z-10 flex flex-col md:flex-row"
             >
               {/* Close Button */}
               <button
@@ -344,7 +344,7 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
               </button>
 
               {/* Left Column: Visual Animation */}
-              <div className="w-full md:w-1/2 relative overflow-hidden bg-black border-b md:border-b-0 md:border-r border-white/10 flex items-center justify-center min-h-[300px]">
+              <div className="w-full md:w-1/2 relative overflow-hidden bg-black border-b md:border-b-0 md:border-r border-white/10 flex items-center justify-center min-h-[250px] sm:min-h-[300px]">
                 {/* Visual Container */}
                 <div className="absolute inset-0 w-full h-full">
                   {selectedTopic.id === 'ideation' && <IdeationVisual />}
@@ -352,43 +352,43 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
                   {selectedTopic.id === 'launch' && <LaunchVisual />}
                 </div>
 
-                <div className="absolute bottom-10 left-10 right-10 z-20">
-                   <h3 className="text-5xl font-bold text-white font-display mb-3 tracking-tight">{selectedTopic.title}</h3>
-                   <div className="h-1.5 w-20 rounded-full" style={{ backgroundColor: selectedTopic.accent }} />
+                <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 md:bottom-10 md:left-10 md:right-10 z-20">
+                   <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-display mb-2 sm:mb-3 tracking-tight">{selectedTopic.title}</h3>
+                   <div className="h-1 sm:h-1.5 w-16 sm:w-20 rounded-full" style={{ backgroundColor: selectedTopic.accent }} />
                 </div>
               </div>
 
               {/* Right Column: Step-by-Step Content */}
-              <div className="w-full md:w-1/2 p-8 md:p-16 bg-[#0b0c10] overflow-y-auto custom-scrollbar relative">
+              <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-12 lg:p-16 bg-[#0b0c10] overflow-y-auto custom-scrollbar relative">
                 <div className="absolute top-0 right-0 w-full h-24 bg-gradient-to-b from-[#0b0c10] to-transparent pointer-events-none z-10" />
                 
-                <div className="mt-8 space-y-12 relative z-0 pb-20">
+                <div className="mt-4 sm:mt-6 md:mt-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-0 pb-16 sm:pb-20">
                   <div>
-                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 block">Overview</span>
-                    <p className="text-slate-300 text-xl leading-relaxed font-light">{selectedTopic.desc}</p>
+                    <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 sm:mb-4 block">Overview</span>
+                    <p className="text-slate-300 text-base sm:text-lg md:text-xl leading-relaxed font-light">{selectedTopic.desc}</p>
                   </div>
 
-                  <div className="space-y-8">
-                     <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block">Key Phases</span>
+                  <div className="space-y-6 sm:space-y-8">
+                     <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest block">Key Phases</span>
                     {selectedTopic.steps.map((step, index) => (
                       <motion.div 
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 + (index * 0.15), duration: 0.5 }}
-                        className="group relative pl-8"
+                        className="group relative pl-6 sm:pl-8"
                       >
                         {/* Vertical Line */}
                         <div className="absolute left-0 top-2 bottom-0 w-px bg-white/10 group-hover:bg-white/20 transition-colors" />
                         <div 
-                          className="absolute left-[-4px] top-2 w-2.5 h-2.5 rounded-full border border-[#0b0c10] transition-colors duration-500"
+                          className="absolute left-[-3px] sm:left-[-4px] top-2 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border border-[#0b0c10] transition-colors duration-500"
                           style={{ backgroundColor: selectedTopic.accent }}
                         />
 
-                        <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-200 transition-colors">
+                        <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-200 transition-colors">
                           {step.title}
                         </h4>
-                        <p className="text-slate-400 leading-relaxed text-lg font-light">
+                        <p className="text-slate-400 leading-relaxed text-sm sm:text-base md:text-lg font-light">
                           {step.desc}
                         </p>
                       </motion.div>
@@ -397,13 +397,13 @@ const CreateExtraordinary: React.FC<CreateExtraordinaryProps> = ({ onNavigate })
                 </div>
 
                 {/* Footer Action */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10] to-transparent flex justify-between items-end">
-                  <span className="text-slate-500 text-sm">Step {selectedTopic.steps.length} of {selectedTopic.steps.length}</span>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10] to-transparent flex flex-col sm:flex-row justify-between items-end gap-4">
+                  <span className="text-slate-500 text-xs sm:text-sm">Step {selectedTopic.steps.length} of {selectedTopic.steps.length}</span>
                   <Button
                     onClick={() => setSelectedTopic(null)}
                     variant="outline"
                     className={cn(
-                      "border-slate-700 text-slate-300",
+                      "border-slate-700 text-slate-300 w-full sm:w-auto",
                       "hover:text-white hover:border-white"
                     )}
                   >

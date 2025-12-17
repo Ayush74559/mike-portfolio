@@ -565,12 +565,21 @@ const ConsultationView = () => (
             title="Book a Discovery Call" 
             desc="30-minute strategic session to assess your needs."
             action="Schedule Now"
+            href="mailto:mike.agar@fastdataconnect.com?subject=Discovery Call Request"
           />
           <ContactMethod 
             icon={Mail} 
             title="Email Inquiries" 
             desc="Detailed technical questions or RFP submissions."
-            action="hello@example.com"
+            action="mike.agar@fastdataconnect.com"
+            href="mailto:mike.agar@fastdataconnect.com"
+          />
+          <ContactMethod 
+            icon={Calendar} 
+            title="Phone Consultation" 
+            desc="Direct line for immediate inquiries."
+            action="+1 (203) 571-7669"
+            href="tel:+12035717669"
           />
         </Reveal>
       </div>
@@ -634,17 +643,22 @@ const ConsultationView = () => (
   </motion.div>
 );
 
-const ContactMethod = ({ icon: Icon, title, desc, action }: any) => (
-  <div className="flex items-start gap-5 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group cursor-pointer hover:bg-white/10">
-    <div className="w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:border-blue-500 transition-colors duration-300 shadow-lg">
-      <Icon className="w-6 h-6 text-slate-300 group-hover:text-white transition-colors" />
-    </div>
-    <div>
-      <h3 className="text-lg font-bold text-white mb-1">{title}</h3>
-      <p className="text-slate-400 text-sm mb-3 font-light leading-relaxed">{desc}</p>
-      <div className="flex items-center text-blue-400 font-bold text-xs uppercase tracking-wider group-hover:text-blue-300">
-        {action} <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+const ContactMethod = ({ icon: Icon, title, desc, action, href }: any) => {
+  const Component = href ? 'a' : 'div';
+  const props = href ? { href, target: href.startsWith('mailto:') || href.startsWith('tel:') ? undefined : '_blank', rel: href.startsWith('mailto:') || href.startsWith('tel:') ? undefined : 'noopener noreferrer' } : {};
+  
+  return (
+    <Component {...props} className="flex items-start gap-5 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group cursor-pointer hover:bg-white/10">
+      <div className="w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:border-blue-500 transition-colors duration-300 shadow-lg">
+        <Icon className="w-6 h-6 text-slate-300 group-hover:text-white transition-colors" />
       </div>
-    </div>
-  </div>
-);
+      <div>
+        <h3 className="text-lg font-bold text-white mb-1">{title}</h3>
+        <p className="text-slate-400 text-sm mb-3 font-light leading-relaxed">{desc}</p>
+        <div className="flex items-center text-blue-400 font-bold text-xs uppercase tracking-wider group-hover:text-blue-300">
+          {action} <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+        </div>
+      </div>
+    </Component>
+  );
+};

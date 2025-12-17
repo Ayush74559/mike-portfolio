@@ -59,6 +59,38 @@
       .animate-border-beam {
         animation: border-beam calc(var(--duration)*1s) infinite linear;
       }
+
+      /* Journey-themed scroll progress indicator */
+      @keyframes journey-progress {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+
+      /* Smooth fade-in for journey sections */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Enhanced gradient animation */
+      @keyframes gradient-x {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      .animate-gradient-x {
+        background-size: 200% 200%;
+        animation: gradient-x 3s ease infinite;
+      }
     </style>
     <script>
       tailwind.config = {
